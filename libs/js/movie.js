@@ -2,9 +2,9 @@ $(document).ready(function () {
 /*
 Change the background image and font every 10 seconds
 */
-/*
-	setInterval(function () {
+	
 		var number = Math.floor((Math.random() * 6) + 1);
+		console.log(number);
 		if (number == 1) {
 			$("#font_title").css("font-size", "20px");
 			$("#font_line").css("font-size", "15px");
@@ -16,9 +16,9 @@ Change the background image and font every 10 seconds
 			$("#font_movie").text("- Spider Man");
 			$("body").css("background", "url('libs/img/spiderman.jpg') no-repeat center center fixed");
 		} else if (number == 2) {
-			$("#font_title").css("font-size", "20px");
-			$("#font_line").css("font-size", "15px");
-			$("#font_movie").css("font-size", "15px");
+			$("#font_title").css("font-size", "35px");
+			$("#font_line").css("font-size", "30px");
+			$("#font_movie").css("font-size", "30px");
 			$("#font_title").css("font-family", "harryporter");
 			$("#font_line").css("font-family", "harryporter");
 			$("#font_line").text("For a very sober-minded people, death is just another great adventure.");
@@ -36,9 +36,9 @@ Change the background image and font every 10 seconds
 			$("#font_movie").text("- Terminator");
 			$("body").css("background", "url('libs/img/terminator.jpg') no-repeat center center fixed");
 		} else if (number == 4) {
-			$("#font_title").css("font-size", "20px");
-			$("#font_line").css("font-size", "15px");
-			$("#font_movie").css("font-size", "15px");
+			$("#font_title").css("font-size", "30px");
+			$("#font_line").css("font-size", "20px");
+			$("#font_movie").css("font-size", "20px");
 			$("#font_title").css("font-family", "titanic");
 			$("#font_line").css("font-family", "titanic");
 			$("#font_line").text("You jump, I jump.");
@@ -47,29 +47,35 @@ Change the background image and font every 10 seconds
 			$("body").css("background", "url('libs/img/titanic.jpg') no-repeat center center fixed");
 		} else if (number == 5) {
 			$("#font_title").css("font-family", "godfather");
-			$("#font_title").css("font-size", "20px");
+			$("#font_title").css("font-size", "40px");
+			$("#font_title").css("letter-spacing","0.0625em");
 			$("#font_line").css("font-family", "godfather");
-			$("#font_line").css("font-size", "15px");
+			$("#font_line").css("font-size", "30px");
+			$("#font_line").css("letter-spacing","0.0625em");			
 			$("#font_line").text(" I don't apologize — that's my life. ");
 			$("#font_movie").css("font-family", "godfather");
 			$("#font_movie").css("font-size", "30px");
+			$("#font_movie").css("letter-spacing","0.0625em");
 			$("#font_movie").text("- Godfather");
 			$("body").css("background", "url('libs/img/godfather.png') no-repeat center center fixed");
 		} else if (number == 6) {
 			$("#font_title").css("font-size", "20px");
 			$("#font_line").css("font-size", "15px");
 			$("#font_movie").css("font-size", "15px");
-			$("#font_title").css("font-family", "pig");
-			$("#font_line").css("font-family", "pig");
-			$("#font_line").text("Th-th-th-that's all folks!");
-			$("#font_movie").css("font-family", "pig");
-			$("#font_movie").text("- Porky Pig");
-			$("body").css("background", "url('libs/img/pig.jpg') no-repeat center center fixed");
+			$("#font_title").css("font-family", "transformer");
+			$("#font_line").css("font-family", "transformer");
+			$("#font_line").text("It’s been an honor serving with you all, Autobots ! roll out");
+			$("#font_movie").css("font-family", "transformer");
+			$("#font_movie").css("letter-spacing","0.0625em");
+			$("#font_line").css("letter-spacing","0.0625em");
+			$("#font_title").css("letter-spacing","0.0625em");						
+			$("#font_movie").text("- transformer");
+			$("body").css("background", "url('libs/img/transformer.jpg') no-repeat center center fixed");
+
 		}
 
-	}, 10000);
-*/
 });
+
 
 var chart;
 var loadDone = false;
@@ -94,7 +100,7 @@ nv.addGraph(function () {
 		.showDistX(true)
 		.showDistY(true)
 		.useVoronoi(true)
-		.color(d3.scale.category20().range())
+		//.color(d3.scale.category2().range())
 		.transitionDuration(300);
 
 	chart.xAxis.tickFormat(d3.format('.02f'));
@@ -127,20 +133,29 @@ load and wait cvs data to chart until all the data is loaded
 		var data = e.series.values[e.pointIndex];
 
 		var name = data.name;
-		result = getJson(name);
+		//result = getJson(name);
 
-		id = result["id"];
-		director = result["director"];
-		actor = result["actor"];
-		country = result["country"];
-		rate = data.y;
+		var rate = data.y;
+
 
 		return "<b>" + name + "</b>" + "(" + x + ")  " +
 		"<span class='label label-info'>" + rate + "</span><br/>" +
-		"<font style='color:#6C7A89'>" + key + " - " + country + "</font><br/>" +
-		"Director: " + director + "<br/>" +
-		"Actor:&nbsp&nbsp&nbsp&nbsp" + actor + "</br>" +
-		"<small><ins>Click on the circle to check more info</ins></small>";
+		"<font style='color:#6C7A89'>" + key +" movie"+ "</font><br/>" +
+		"<small><ins>Click to check more info</ins></small>";
+
+		//var result = {};
+		// id = result["id"];
+		// director = result["director"];
+		// actor = result["actor"];
+		// country = result["country"];
+		// rate = data.y;
+
+		// return "<b>" + name + "</b>" + "(" + x + ")  " +
+		// "<span class='label label-info'>" + rate + "</span><br/>" +
+		// "<font style='color:#6C7A89'>" + key + " - " + country + "</font><br/>" +
+		// "Director: " + director + "<br/>" +
+		// "Actor:&nbsp&nbsp&nbsp&nbsp" + actor + "</br>" +
+		// "<small><ins>Click on the circle to check more info</ins></small>";
 
 	});
 /*
@@ -151,8 +166,8 @@ add click event to cirles in the chart
 		var name = data.name;
 
 		result = getJson(name);
-
 		window.open("http://www.imdb.com/title/" + result["id"]);
+		//window.open("http://www.imdb.com/title/" + result["id"]);
 
 	});
 
@@ -163,20 +178,33 @@ add click event to cirles in the chart
 get detailed data of a movie
 */
 function getJson(name) {
+	// var xhttp = new XMLHttpRequest();
+	// var result = {};
+	// xhttp.open("POST", "http://www.omdbapi.com/?t=" + name, true);
+	// console.log(xhttp.responseText);
+	// var data = JSON.parse(xhttp.responseText);
+	// 		console.log(data);
+	// result["id"] = data.imdbID;
+	// result["director"] = data.Director;
+	// result["actor"] = data.Actors;
+	// result["country"] = data.Country;
 
-	var result = {};
-	$.ajax({
-		url : "http://www.omdbapi.com/?t=" + name,
-		dataType : 'json',
-		async : false,
-		success : function (data) {
-			result["id"] = data.imdbID;
-			result["director"] = data.Director;
-			result["actor"] = data.Actors;
-			result["country"] = data.Country;
-		}
-	});
-	return result;
+	//return result;
+
+		var result = {};
+		$.ajax({
+			url : "http://www.omdbapi.com/?t=" + name,
+			dataType : 'json',
+			async : false,
+			success : function (data) {
+				result["id"] = data.imdbID;
+				result["director"] = data.Director;
+				result["actor"] = data.Actors;
+				result["country"] = data.Country;
+			}
+		});
+		console.log(result);
+		return result;
 }
 
 function Data() {
