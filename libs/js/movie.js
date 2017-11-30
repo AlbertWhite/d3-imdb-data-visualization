@@ -193,7 +193,7 @@ function getJson(name) {
 
 		var result = {};
 		$.ajax({
-			url : "http://www.omdbapi.com/?t=" + name,
+			url : "http://www.omdbapi.com/?apiKey=bb4d0bae&t=" + name,
 			dataType : 'json',
 			async : false,
 			success : function (data) {
