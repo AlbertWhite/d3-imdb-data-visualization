@@ -1,4 +1,4 @@
-### Data visualisation for the moving ranking during 1990-2012. 
+### Data visualisation for the movie rankings during 1990-2012. 
 
 Link to play: http://albertwhite.github.io/lmdb-data-visualization/
 
