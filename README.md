@@ -1,5 +1,7 @@
-This website demonstrates imdb movie values with d3 library. <b>Suggest to use Firefox to open it</b>
-<br/>
-<br/>Users can check the rating of movies according to different movie types.
-<br/>Hover on the nodes for further information.
-<br/>Click on the nodes to jump to the movie page on imdb.
+### Data visualisation for the moving ranking during 1990-2012. 
+
+Link to play: http://albertwhite.github.io/lmdb-data-visualization/
+
+- Users can check the rating of movies according to different movie types.
+- Hover on the nodes for further information.
+- Click on the nodes to jump to the movie page on imdb.
